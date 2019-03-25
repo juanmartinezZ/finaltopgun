@@ -1,42 +1,24 @@
-// web api
+let slideIndex = 0;
 
-const itm1 = document.createElement("LI")
-itm1.textContent = "Game chess"
+// List resources
+var resources = ["img1.jpeg", "img2.jpeg", "img3.jpeg", "img4.jpeg"];
 
-//document.querySelector
-const lista = document.querySelector("#mi-lista")
+var imgContainer = document.getElementById("img1");
+img1.src = resources[0];
 
+var mySlides = document.getElementById("mySlides");
+mySlides.style.display = "block";
 
-//DESTINO.appendChild(nodoaagregar)
+var numbertext = document.getElementById("numbertext");
 
-lista.appendChild(itm1)
-
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+  if((n > 0 && slideIndex < 3) || (n < 0 && slideIndex > 0)){
+    showSlides(slideIndex += n);
+  }
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1} 
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none"; 
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block"; 
-  dots[slideIndex-1].className += " active";
+    var resources = ["img1.jpeg", "img2.jpeg", "img3.jpeg", "img4.jpeg"];
+    img1.src = resources[n];
+    numbertext.innerHTML = slideIndex+1 + "/4"; 
 }
